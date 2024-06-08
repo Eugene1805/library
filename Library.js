@@ -52,27 +52,56 @@ class linkedList{
     }
 }
 
-function menu(){
-    let option;
-    do{
-        console.log("Elije una opcion:");
-        console.log("1.-");
-        console.log("2.-");
-        console.log("3.-");
-        console.log("4.-");
-        console.log("5.-");
-        console.log("6.-");
-        console.log("7.-");
-        console.log("8.-");
-    }while(option!= 0);
+const readline = require('readline');
+
+// Crear una interfaz para leer la entrada del usuario
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+// Función para mostrar el menú y obtener la selección del usuario
+function mostrarMenu() {
+  console.log("\nMenú de opciones:");
+  console.log("1. Opción 1");
+  console.log("2. Opción 2");
+  console.log("3. Opción 3");
+  console.log("4. Salir");
+
+  return new Promise((resolve) => {
+    rl.question('Por favor, selecciona una opción: ', (respuesta) => {
+      resolve(respuesta);
+    });
+  });
 }
 
+async function main() {
+  let opcion;
+  
+  do {
+    opcion = await mostrarMenu();
 
+    switch (opcion) {
+      case '1':
+        console.log("Has seleccionado la Opción 1");
+        break;
+      case '2':
+        console.log("Has seleccionado la Opción 2");
+        break;
+      case '3':
+        console.log("Has seleccionado la Opción 3");
+        break;
+      case '4':
+        console.log("Saliendo del programa...");
+        break;
+      default:
+        console.log("Opción no válida. Intenta de nuevo.");
+    }
 
-/*ISBN: "",
-    Title: "",
-    Autor: "",
-    Editorial: "",
-    Year: 0,
-    numberOfPages: 0,
-    price: 0 */
+  } while (opcion !== '4');
+
+  rl.close();
+}
+
+main();
+
