@@ -1,5 +1,5 @@
-class node {
-    constructor(ISBN, Title, Autor, Editorial, Year, numberOfPages, price){
+class Node {
+    constructor(ISBN, Title, Autor, Editorial, Year, numberOfPages, price) {
         this.ISBN = ISBN;
         this.Title = Title;
         this.Autor = Autor;
@@ -11,47 +11,71 @@ class node {
     }
 }
 
-class linkedList{
-    constructor(head = null, tail = null){
+class LinkedList {
+    constructor(head = null, tail = null) {
         this.head = head;
         this.tail = tail;
     }
-    append(value) {
-        const newNode = new Node(value);
-        if (!this.head) {
+
+    append(node) {
+        const newNode = new Node(node.ISBN, node.Title, node.Autor, node.Editorial, node.Year, node.numberOfPages, node.price);
+        
+        if (!this.head || this.head.Year > newNode.Year) {
+            newNode.next = this.head;
             this.head = newNode;
-            this.tail = newNode;
-        } else {
-            this.tail.next = newNode;
+            if (!this.tail) this.tail = newNode;
+            return;
+        }
+
+        let current = this.head;
+        while (current.next && current.next.Year <= newNode.Year) {
+            current = current.next;
+        }
+
+        newNode.next = current.next;
+        current.next = newNode;
+
+        if (!newNode.next) {
             this.tail = newNode;
         }
     }
-    find(value) {
+
+    find(ISBN) {
         if (!this.head) return null;
 
-        let current = this.head;  
+        let current = this.head;
         while (current) {
-            if (current.value === value) return current;
-            current = current.next;  
+            if (current.ISBN === ISBN) return current;
+            current = current.next;
         }
 
         return null;
     }
-    update(value){
-        const aux = this.find(value)
-        
+
+    update(ISBN, newData) {
+        const node = this.find(ISBN);
+        if (node) {
+            node.Title = newData.Title !== undefined ? newData.Title : node.Title;
+            node.Autor = newData.Autor !== undefined ? newData.Autor : node.Autor;
+            node.Editorial = newData.Editorial !== undefined ? newData.Editorial : node.Editorial;
+            node.Year = newData.Year !== undefined ? newData.Year : node.Year;
+            node.numberOfPages = newData.numberOfPages !== undefined ? newData.numberOfPages : node.numberOfPages;
+            node.price = newData.price !== undefined ? newData.price : node.price;
+        }
     }
+
     printList() {
         const values = [];
         let current = this.head;
         while (current) {
-            values.push(current.value);
+            values.push(`(${current.ISBN}, ${current.Title}, ${current.Autor}, ${current.Editorial}, ${current.Year}, ${current.numberOfPages}, ${current.price})`);
             current = current.next;
         }
         console.log(values.join(' -> '));
     }
 }
 
+const { resolve } = require('path');
 const readline = require('readline');
 
 // Crear una interfaz para leer la entrada del usuario
@@ -63,10 +87,11 @@ const rl = readline.createInterface({
 // Función para mostrar el menú y obtener la selección del usuario
 function mostrarMenu() {
   console.log("\nMenú de opciones:");
-  console.log("1. Opción 1");
-  console.log("2. Opción 2");
-  console.log("3. Opción 3");
-  console.log("4. Salir");
+  console.log("1. Agregar Libro");
+  console.log("2. Buscar Libro");
+  console.log("3. Borrar libro");
+  console.log("4. Mostrar toda la biblioteca");
+  console.log("5. Salir");
 
   return new Promise((resolve) => {
     rl.question('Por favor, selecciona una opción: ', (respuesta) => {
@@ -75,15 +100,31 @@ function mostrarMenu() {
   });
 }
 
+async function getBookInfo() {
+    const newBook = {};
+  
+    newBook.ISBN = await new Promise((resolve) => rl.question('Ingrese el ISBN del libro: ', resolve));
+    newBook.Title = await new Promise((resolve) => rl.question('Ingrese el nombre del libro: ', resolve));
+    newBook.Autor = await new Promise((resolve) => rl.question('Ingrese el autor del libro: ', resolve));
+    newBook.Editorial = await new Promise((resolve) => rl.question('Ingrese la editorial del libro: ', resolve));
+    newBook.Year = await new Promise((resolve) => rl.question('Ingrese el año de publicación del libro: ', resolve));
+    newBook.numberOfPages = await new Promise((resolve) => rl.question('Ingrese el número de páginas del libro: ', resolve));
+    newBook.price = await new Promise((resolve) => rl.question('Ingrese el precio del libro: ', resolve));
+  
+    return new Node(newBook.ISBN, newBook.Title, newBook.Autor, newBook.Editorial, newBook.Year, newBook.numberOfPages, newBook.price);
+  }
+
 async function main() {
   let opcion;
-  
+  const booksList = new LinkedList();
   do {
     opcion = await mostrarMenu();
 
     switch (opcion) {
       case '1':
-        console.log("Has seleccionado la Opción 1");
+        console.log("Ingrese los datos del nuevo libro");
+        const newBook = await getBookInfo();
+        booksList.append(newBook);
         break;
       case '2':
         console.log("Has seleccionado la Opción 2");
@@ -92,16 +133,18 @@ async function main() {
         console.log("Has seleccionado la Opción 3");
         break;
       case '4':
+        
+        break;
+      case '5' :
         console.log("Saliendo del programa...");
         break;
       default:
         console.log("Opción no válida. Intenta de nuevo.");
     }
 
-  } while (opcion !== '4');
+  } while (opcion !== '5');
 
   rl.close();
 }
 
 main();
-
