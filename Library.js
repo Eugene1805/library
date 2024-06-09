@@ -127,13 +127,22 @@ async function main() {
         booksList.append(newBook);
         break;
       case '2':
-        console.log("Has seleccionado la Opción 2");
+        const isbnToFind = await new Promise((resolve) => rl.question('Ingrese el ISBN del libro a buscar: ', resolve));
+        const foundBook = booksList.find(isbnToFind);
+        if (foundBook) {
+          console.log(`Libro encontrado: (${foundBook.ISBN}, ${foundBook.Title}, ${foundBook.Autor}, ${foundBook.Editorial}, ${foundBook.Year}, ${foundBook.numberOfPages}, ${foundBook.price})`);
+        } else {
+          console.log("Libro no encontrado");
+        }
         break;
       case '3':
-        console.log("Has seleccionado la Opción 3");
+        const isbnToDelete = await new Promise((resolve) => rl.question('Ingrese el ISBN del libro a borrar: ', resolve));
+        booksList.delete(isbnToDelete);
+        console.log("Libro borrado");
         break;
       case '4':
-        
+        console.log("Los libros actuales son: ");
+        booksList.printList();
         break;
       case '5' :
         console.log("Saliendo del programa...");
