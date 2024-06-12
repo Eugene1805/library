@@ -36,12 +36,13 @@ db.run(`CREATE TABLE IF NOT EXISTS books (
 
 // Ruta para mostrar el formulario (sirve el archivo HTML)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 // Ruta para manejar la entrada de datos del formulario
-app.post('/add-book', (req, res) => {
+app.post('/server', (req, res) => {
     const { isbn, title, autor, editorial, year, pages, price } = req.body;
+    console.log(req.body);
     db.run(`INSERT INTO books (ISBN, Title, Author, Editorial, Year, numberOfPages, price) VALUES (?, ?, ?, ?, ?, ?, ?)`, 
            [isbn, title, autor, editorial, year, pages, price], 
            (err) => {
