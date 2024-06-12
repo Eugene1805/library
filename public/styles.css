@@ -1,9 +1,22 @@
 body{
-    background-color: #f4c0fd;
+    background: linear-gradient(60deg, #D44DEB, #A04DEB);
 }
 
+h1{
+    border: 10em;
+    color: white;
+}
 table{
     border-color: black;
-    border-radius: 10px;
-    border-style: solid;
+    border-style: solid;    
 }
+
+
+/*
+    #D44DEB
+    #EB4D58
+    #EB4DB6
+    #A04DEB
+    #EB664D
+    #EB9CD0
+*/
