@@ -36,7 +36,7 @@ db.run(`CREATE TABLE IF NOT EXISTS books (
 
 // Ruta para mostrar el formulario (sirve el archivo HTML)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, '/index.html'));
 });
 
 // Ruta para manejar la entrada de datos del formulario
