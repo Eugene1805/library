@@ -9,6 +9,9 @@ const port = 3000;
 // Configurar body-parser para manejar datos POST
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Servir archivos estáticos
+app.use(express.static(path.join(__dirname)));
+
 // Conectar a la base de datos SQLite
 let db = new sqlite3.Database('./libros.db', (err) => {
     if (err) {
@@ -36,7 +39,7 @@ db.run(`CREATE TABLE IF NOT EXISTS books (
 
 // Ruta para mostrar el formulario (sirve el archivo HTML)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Ruta para manejar la entrada de datos del formulario

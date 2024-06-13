@@ -1,6 +1,5 @@
 body{
-    background: linear-gradient(-60deg, black, #A04DEB) ;
-    
+    background: linear-gradient(-60deg, black, #A04DEB);
 }
 
 nav{
@@ -17,9 +16,8 @@ table{
     align-content: center;
     padding: 1rem;
     border-radius: 5px;
-    border: 2px solid black;  
-    background: 
-    linear-gradient(-120deg,#A04DEB,#000000) padding-box;  
+    border: 2px solid black;
+    background: linear-gradient(-120deg,#A04DEB,#000000) padding-box;
 }
 
 label{
@@ -31,20 +29,21 @@ input{
     width: 25rem;
     height: 1.5rem;
     margin-bottom: 1rem;
-}   
+}
 
 #searchBar{
-    color:  white;
+    color: white;
 }
 
 #sumitbtn{
     font-size: large;
-    color:#A04DEB;
+    color: #A04DEB;
     border-radius: 5px;
     border: solid black;
     width: 12rem;
     height: 3rem;
 }
+
 /*
     #D44DEB
     #EB4D58
