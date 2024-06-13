@@ -1,0 +1,55 @@
+body{
+    background: linear-gradient(-60deg, black, #A04DEB) ;
+    
+}
+
+nav{
+    padding: 2rem;
+}
+
+h1{
+    color: #1a0822;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 2px solid black;  
+    background: 
+    linear-gradient(-120deg,#A04DEB,#000000) padding-box;  
+}
+
+label{
+    color: #1a0822;
+    font-size: 1.5rem;
+}
+
+input{
+    width: 25rem;
+    height: 1.5rem;
+    margin-bottom: 1rem;
+}   
+
+#searchBar{
+    color:  white;
+}
+
+#sumitbtn{
+    font-size: large;
+    color:#A04DEB;
+    border-radius: 5px;
+    border: solid black;
+    width: 12rem;
+    height: 3rem;
+}
+/*
+    #D44DEB
+    #EB4D58
+    #EB4DB6
+    #A04DEB
+    #EB664D
+    #EB9CD0
+*/
