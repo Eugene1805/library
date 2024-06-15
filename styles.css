@@ -1,9 +1,7 @@
 body{
+    display: flex;
+    flex-direction: column;
     background: linear-gradient(-60deg, black, #A04DEB);
-}
-
-nav{
-    padding: 2rem;
 }
 
 h1{
@@ -20,19 +18,40 @@ table{
     background: linear-gradient(-120deg,#A04DEB,#000000) padding-box;
 }
 
-label{
-    color: #1a0822;
-    font-size: 1.5rem;
+.label {
+    width: max-content;
+    margin: 90px auto;
+    display: grid;
+    grid-template-areas: "input";
 }
 
-input{
-    width: 25rem;
-    height: 1.5rem;
-    margin-bottom: 1rem;
+.input {
+    grid-area: input;
+    width: 300px;
+    font:inherit;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: .7rem 1.5rem;
 }
 
-#searchBar{
-    color: white;
+.label_name {
+    grid-area: input;
+    z-index: 100;
+    width: max-content;
+    margin-left: 1rem;
+    padding: 0 .5rem;
+    align-self: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: transform .2s;
+    transform-origin: center left;
+}
+
+.input:where( :focus,
+:not(:placeholder-shown)) + .label_name {
+    transform: translateY(-50%) scale(.7);
+    
 }
 
 #sumitbtn{

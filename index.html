@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Mis libros</title>
-    <link rel="icon" type="image/x-icon" href="/BookIcon.ico">
+    <link rel="icon" type="image/x-icon" href="BookIcon.ico">
 </head>
 <body>
-    <nav><h1>Sistema de inventario</h1></nav>
+    <header><h1>Sistema de inventario</h1></header>
     <section>
         <table>
             <tr>
+                <th>Consultar libro</th>
                 <td>
-                    <label for="search" id="searchBar">Ingrese el libro que desea buscar</label><br>
-                    <input type="search" autofocus>
+                    
+                    <label class="label">
+                        <input type="search" id="searchBar" autofocus placeholder=" " class="input">
+                        <span class="label_name">Ingresa el libro que buscas</span>
+                    </label>
+                    
                 </td>
-                <td>
+                <th>Agregar libro</th>
+                <td>    
                     <form action="/server" method="post">
                         <label for="isbn">ISBN:</label><br>
                         <input type="text" id="isbn" name="isbn" required><br>
@@ -34,6 +40,10 @@
                         <input type="text" id="price" name="price" required><br>
                         <input type="submit" id="sumitbtn" value="Agregar">
                     </form>
+                </td>
+                <th>Eliminar libro</th>
+                <td>
+                    
                 </td>
             </tr>
         </table>
