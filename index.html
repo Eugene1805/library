@@ -16,7 +16,7 @@
                 <td>
                     
                     <label class="label">
-                        <input type="search" id="searchBar" autofocus placeholder=" " class="input">
+                        <input class="input" type="search" id="searchBar" autofocus placeholder=" ">
                         <span class="label_name">Ingresa el libro que buscas</span>
                     </label>
                     
@@ -24,20 +24,42 @@
                 <th>Agregar libro</th>
                 <td>    
                     <form action="/server" method="post">
-                        <label for="isbn">ISBN:</label><br>
-                        <input type="text" id="isbn" name="isbn" required><br>
-                        <label for="title">Título del libro:</label><br>
-                        <input type="text" id="title" name="title" required><br>
-                        <label for="autor">Autor:</label><br>
-                        <input type="text" id="autor" name="autor" required><br>
-                        <label for="editorial">Editorial:</label><br>
-                        <input type="text" id="editorial" name="editorial" required><br>
-                        <label for="year">Año de publicación:</label><br>
-                        <input type="text" id="year" name="year" required><br>
-                        <label for="pages">Número de páginas:</label><br>
-                        <input type="text" id="pages" name="pages" required><br>
-                        <label for="price">Precio:</label><br>
-                        <input type="text" id="price" name="price" required><br>
+
+                        <label class="label" for="isbn">
+                            <input class= "input" type="text" id="isbn" name="isbn" required placeholder=" ">
+                            <span class="label_name">ISBN:</span>
+                        </label>
+                        
+                        <label class="label" for="title">
+                            <input class="input" type="text" id="title" name="title" required  placeholder=" ">
+                            <span class="label_name">Título del libro:</span>
+                        </label>
+
+                        <label class="label" for="autor">
+                            <input class="input" type="text" id="autor" name="autor" required placeholder=" ">
+                            <span class="label_name">Autor:</span>
+                        </label>
+                        
+                        <label class="label" for="editorial">
+                            <input class="input" type="text" id="editorial" name="editorial" required placeholder=" ">
+                            <span class="label_name">Editorial:</span>
+                        </label>
+                        
+                        <label class="label" for="year">
+                            <input class="input" type="text" id="year" name="year" required placeholder=" ">
+                            <span class="label_name">Año de publicación:</span>
+                        </label>
+                        
+                        <label class="label" for="pages">
+                            <input class="input" type="text" id="pages" name="pages" required placeholder=" ">
+                            <span class="label_name">Número de páginas:</span>
+                        </label>
+                        
+                        <label class="label" for="price">
+                            <input class="input" type="text" id="price" name="price" required placeholder=" ">
+                            <span class="label_name">Precio:</span>
+                        </label>
+                        
                         <input type="submit" id="sumitbtn" value="Agregar">
                     </form>
                 </td>
