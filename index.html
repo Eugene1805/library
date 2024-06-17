@@ -10,18 +10,19 @@
 <body>
     <header><h1>Sistema de inventario</h1></header>
     <section>
-        <table>
+        <table> 
             <tr>
-                <th>Consultar libro</th>
+                <th>Buscar libro</th>
+                <th>Agregar libro</th>
+            </tr>
+            <tr>
                 <td>
-                    
                     <label class="label">
                         <input class="input" type="search" id="searchBar" autofocus placeholder=" ">
-                        <span class="label_name">Ingresa el libro que buscas</span>
-                    </label>
-                    
+                        <span class="label_name">Ingresa el ISBN del libro que desea consultar</span>
+                    </label> 
+                    <button type="button" id="searchBtn">Buscar</button>
                 </td>
-                <th>Agregar libro</th>
                 <td>    
                     <form action="/server" method="post">
 
@@ -61,11 +62,8 @@
                         </label>
                         
                         <input type="submit" id="sumitbtn" value="Agregar">
+
                     </form>
-                </td>
-                <th>Eliminar libro</th>
-                <td>
-                    
                 </td>
             </tr>
         </table>
