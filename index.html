@@ -10,63 +10,64 @@
 <body>
     <header><h1>Sistema de inventario</h1></header>
     <section>
-        <table> 
-            <tr>
-                <th>Buscar libro</th>
-                <th>Agregar libro</th>
-            </tr>
-            <tr>
-                <td>
-                    <label class="label">
-                        <input class="input" type="search" id="searchBar" autofocus placeholder=" ">
-                        <span class="label_name">Ingresa el ISBN del libro que desea consultar</span>
-                    </label> 
-                    <button type="button" id="searchBtn">Buscar</button>
-                </td>
-                <td>    
-                    <form action="/server" method="post">
+        <div class="container">
+            <div class="consulta">
+                <h2>Buscar libro</h2>
+                <label class="label">
+                    <input class="input" type="search" id="searchBar" autofocus placeholder=" ">
+                    <span class="label_name">Ingresa el ISBN del libro que desea consultar</span>
+                </label> 
+                <button type="button" id="searchBtn">Buscar</button>
+            </div>
+            <div class="formulario">
+                <h2>Agregar libro</h2>
+                <form action="/server" method="post">
 
-                        <label class="label" for="isbn">
-                            <input class= "input" type="text" id="isbn" name="isbn" required placeholder=" ">
-                            <span class="label_name">ISBN:</span>
-                        </label>
-                        
-                        <label class="label" for="title">
-                            <input class="input" type="text" id="title" name="title" required  placeholder=" ">
-                            <span class="label_name">Título del libro:</span>
-                        </label>
+                    <label class="label" for="isbn">
+                        <input class="input" type="text" id="isbn" name="isbn" required placeholder=" ">
+                        <span class="label_name">ISBN:</span>
+                    </label>
+                    
+                    <label class="label" for="title">
+                        <input class="input" type="text" id="title" name="title" required placeholder=" ">
+                        <span class="label_name">Título del libro:</span>
+                    </label>
 
-                        <label class="label" for="autor">
-                            <input class="input" type="text" id="autor" name="autor" required placeholder=" ">
-                            <span class="label_name">Autor:</span>
-                        </label>
-                        
-                        <label class="label" for="editorial">
-                            <input class="input" type="text" id="editorial" name="editorial" required placeholder=" ">
-                            <span class="label_name">Editorial:</span>
-                        </label>
-                        
-                        <label class="label" for="year">
-                            <input class="input" type="text" id="year" name="year" required placeholder=" ">
-                            <span class="label_name">Año de publicación:</span>
-                        </label>
-                        
-                        <label class="label" for="pages">
-                            <input class="input" type="text" id="pages" name="pages" required placeholder=" ">
-                            <span class="label_name">Número de páginas:</span>
-                        </label>
-                        
-                        <label class="label" for="price">
-                            <input class="input" type="text" id="price" name="price" required placeholder=" ">
-                            <span class="label_name">Precio:</span>
-                        </label>
-                        
-                        <input type="submit" id="sumitbtn" value="Agregar">
+                    <label class="label" for="autor">
+                        <input class="input" type="text" id="autor" name="autor" required placeholder=" ">
+                        <span class="label_name">Autor:</span>
+                    </label>
+                    
+                    <label class="label" for="editorial">
+                        <input class="input" type="text" id="editorial" name="editorial" required placeholder=" ">
+                        <span class="label_name">Editorial:</span>
+                    </label>
 
-                    </form>
-                </td>
-            </tr>
-        </table>
+                </form>
+            </div>
+            <div class="formulario">
+                <form action="/server" method="post">
+                    
+                    <label class="label" for="year">
+                        <input class="input" type="text" id="year" name="year" required placeholder=" ">
+                        <span class="label_name">Año de publicación:</span>
+                    </label>
+                    
+                    <label class="label" for="pages">
+                        <input class="input" type="text" id="pages" name="pages" required placeholder=" ">
+                        <span class="label_name">Número de páginas:</span>
+                    </label>
+                    
+                    <label class="label" for="price">
+                        <input class="input" type="text" id="price" name="price" required placeholder=" ">
+                        <span class="label_name">Precio:</span>
+                    </label>
+                    
+                    <input type="submit" id="sumitbtn" value="Agregar">
+
+                </form>
+            </div>
+        </div>
     </section>
 </body>
 </html>

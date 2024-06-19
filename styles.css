@@ -1,32 +1,43 @@
-body{
+body {
     background: linear-gradient(-60deg, black, #A04DEB);
 }
 
-h1{
+h1 {
     color: #1a0822;
+    text-align: center;
 }
 
-table{
-    margin-left: auto;
-    margin-right: auto;
-    align-content: center;
-    padding: 1rem;
-    border-radius: 5px;
+h2 {
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.consulta, .formulario {
+    background: linear-gradient(-120deg, #A04DEB, #000000);
     border: 2px solid black;
-    background: linear-gradient(-120deg,#A04DEB,#000000) padding-box;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
 }
 
 .label {
-    width: max-content;
-    margin: 90px auto;
+    width: 100%;
+    margin: 20px 0;
     display: grid;
     grid-template-areas: "input";
 }
 
 .input {
     grid-area: input;
-    width: 300px;
-    font:inherit;
+    width: 90%;
+    font: inherit;
     border-radius: 10px;
     border: 1px solid gray;
     padding: .7rem 1.5rem;
@@ -46,13 +57,13 @@ table{
     transform-origin: center left;
 }
 
-.input:where( :focus,
-:not(:placeholder-shown)) + .label_name {
+.input:where(:focus, :not(:placeholder-shown)) + .label_name {
     transform: translateY(-50%) scale(.7);
-    
 }
 
-#sumitbtn{
+#searchBtn, #sumitbtn {
+    display: block;
+    margin: 10px auto;
     font-size: large;
     color: #A04DEB;
     border-radius: 5px;
@@ -60,6 +71,15 @@ table{
     width: 12rem;
     height: 3rem;
 }
+
+#searchBtn {
+    background-color: #fff;
+}
+
+#sumitbtn {
+    background-color: #fff;
+}
+
 
 /*
     #D44DEB
