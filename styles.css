@@ -1,5 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #121212; /* Fondo Principal (Oscuro) */
+    --secondary-color: #f2f2f2; /* Fondo Secundario */
+    --text-color: #101010; /* Texto Principal */
+    --secondary-text-color: #B0B0B0; /* Texto Secundario */
+    --font: 'Roboto', sans-serif; /* Fuente */
+}
+
+html {
+    font-family: var(--font);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    background-repeat: no-repeat;
+}
+
+
+
 body {
-    background: linear-gradient(-60deg, black, #A04DEB);
+    background: linear-gradient(-60deg, var(--main-color), var(--secondary-color));
+}
+
+header {
+    padding: 20px;
 }
 
 h1 {
@@ -8,7 +35,7 @@ h1 {
 }
 
 h2 {
-    color: #fff;
+    color: var(--secondary-text-color);
     text-align: center;
 }
 
@@ -20,7 +47,6 @@ h2 {
 }
 
 .consulta, .formulario {
-    background: linear-gradient(-120deg, #A04DEB, #000000);
     border: 2px solid black;
     border-radius: 5px;
     padding: 20px;
@@ -65,27 +91,16 @@ h2 {
     display: block;
     margin: 10px auto;
     font-size: large;
-    color: #A04DEB;
+    color: var(--main-color);
+    background-color: var(--secondary-color);
     border-radius: 5px;
     border: solid black;
     width: 12rem;
     height: 3rem;
 }
 
-#searchBtn {
-    background-color: #fff;
+#searchBtn:hover, #sumitbtn:hover {
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+    cursor: pointer;
 }
-
-#sumitbtn {
-    background-color: #fff;
-}
-
-
-/*
-    #D44DEB
-    #EB4D58
-    #EB4DB6
-    #A04DEB
-    #EB664D
-    #EB9CD0
-*/
